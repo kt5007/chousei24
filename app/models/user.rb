@@ -10,4 +10,9 @@ class User < ApplicationRecord
     validates :password_confirmation, presence: true
     
     has_secure_password
+    
+    has_many :helds
+    has_many :participates
+    has_many :participate_helds, through: :participates, source: 'held'
+    
 end

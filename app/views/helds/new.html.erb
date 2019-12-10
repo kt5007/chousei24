@@ -1,0 +1,43 @@
+<div class="topic-new-wrapper" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">イベント作成</h1>
+        <%= form_for @held do |f| %>
+          <div class="form-group">
+            <%= f.label "画像" %>
+            <%= f.file_field :image%>
+          </div>
+
+          <div class="form-group">
+            <%= f.label "イベント名" %>
+            <%= f.text_field :event_name, class: 'form-control' %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label "開催予定日時" %>
+            <%= f.datetime_select :held_time, use_month_numbers: true, class: 'form-control' %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label "住所" %>
+            <%= f.text_field :address, class: 'form-control' %>
+          </div>          
+
+          <div class="form-group">
+            <%= f.label "主催者" %>
+            <%= f.text_field :helder, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label "詳細" %>
+            <%= f.text_area :description, class: 'form-control' %>
+          </div>
+
+          <%= f.submit '作成', class: 'btn btn-black btn-block' %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

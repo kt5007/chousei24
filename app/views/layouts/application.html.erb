@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
@@ -20,19 +21,20 @@
           <span class="navbar-brand">Home</span>
         <% end %>
         <ul class="nav navbar-nav navbar-right">
+          
           <% if logged_in? %>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to participates_path do %>
                 <span class="navbar-brand">参加予定イベント</span>
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to helds_new_path do %>
                 <span class="navbar-brand">イベント作成</span>
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to helds_path do %>
                 <span class="navbar-brand">主催中のイベント</span>
               <% end %>
             </li>
@@ -42,11 +44,6 @@
               <% end %>
             </li>
           <% else %>
-            <li>
-              <%= link_to new_user_path do %>
-               <span class="navbar-brand">開催中のイベント</span>
-              <% end %>
-            </li>
             <li>
               <%= link_to login_path do %>
                 <span class="navbar-brand">ログイン</span>
@@ -59,11 +56,11 @@
     
     <%= yield %>
     
-    <script>
-      $(function(){
-        $(".alert").fadeOut(500);
-      });
-    </script>
+<script>
+  $(function(){
+    $(".alert").fadeOut(5000);
+  });
+</script>
 
   </body>
 </html>

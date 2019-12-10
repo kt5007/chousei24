@@ -1,0 +1,43 @@
+
+
+<div class="topic-new-wrapper" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">Edit Ivent</h1>
+        <%= @helds.each do |held| %>
+
+          <div class="form-group">
+            <%= image_tag held.image.url if held.image? %>
+          </div>
+
+          <div class="form-group">
+            <%= held.label :イベント名 %>
+            <%= held.event_name, class: 'form-control' %>
+          </div>
+          
+          <div class="form-group">
+            <label class="control-label" for="">開催予定日時</label>
+            <%= held.held_time, class: 'form-control' %>
+          </div>
+          
+          <div class="form-group">
+            <%= held.label :address %>
+            <%= held.address, class: 'form-control' %>
+          </div>          
+
+          <div class="form-group">
+            <%= held.label :helder %>
+            <%= held.helder, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= held.label :description %>
+            <%= held.description, class: 'form-control' %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="topic-index-wrapper">
+  <div class="container">
+    <% if logged_in? %>
+    <% @participate_helds.each do |held| %>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="topic-index-single">
+     
+              <%= image_tag held.image.url if held.image? %>
+              
+              <h4 class="topic-author">
+                <%= "開催名称：" %>
+                <%= held.event_name %>
+              </h4>
+              
+              <h4 class="topic-author">
+                <%= "開催日時：" %>
+                <%= held.held_time %>
+              </h4>
+
+              <h4 class="topic-author">
+                <%= "開催場所：" %>
+                <%= held.address %>
+              </h4>
+
+              <p class="topic-author">
+                <%= link_to("/helds/#{held.id}/show", {method: "get"}) do %>
+                <button>詳細</button>
+                <% end %>
+              </p>
+
+              <p class="topic-author">
+                <%=  link_to "/participates/#{held.id}/destroy", method: :post do  %>
+                <button type="button" class="btn btn-outline-primary">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true">参加取消</span>
+                </button>
+                <% end %>
+              </p>
+      
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>

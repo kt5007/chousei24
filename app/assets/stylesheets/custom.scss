@@ -75,3 +75,171 @@ h1, h2 {
   width: 100%;
   z-index: 10000;
 }
+
+.btn-black {
+  color: #565656;
+  border: 1px solid #565656;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  background-color: rgba(0,0,0,0.0);
+
+  &:hover {
+    color: #565656;
+  }
+}
+
+.topic-new-wrapper {
+  padding-top: 120px;
+}
+
+.topic-index-wrapper {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-color: #fafafa;
+  .topic-index-single {
+    background-color: #fff;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+    .topic-author {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+
+    .topic-text {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+
+    img {
+      margin-top: 0px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .topic-index-icon {
+      width: 35px;
+      height: 30px;
+      margin-left: 20px;
+    }
+  }
+}
+
+.sample img {
+    width: 31%;    /* 横幅を割合で指定 */
+    height: auto;  /* 高さは自動指定 */
+}
+
+.participate-yes {
+  position: relative;
+}
+
+.participate-yes p {
+position: absolute;
+top: 0;/*画像の左上に配置*/
+left: 0;
+margin: 0; /*余計な隙間を除く*/
+color: white;/*文字を白に*/
+background: red;/*背景色*/
+font-size: 15px;
+line-height: 1;/*行高は1に*/
+padding: 5px 10px;/*文字周りの余白*/
+}
+
+.participate-no {
+  position: relative;
+}
+
+.participate-no p {
+position: absolute;
+top: 0;/*画像の左上に配置*/
+left: 0;
+margin: 0; /*余計な隙間を除く*/
+color: white;/*文字を白に*/
+background: blue;/*背景色*/
+font-size: 15px;
+line-height: 1;/*行高は1に*/
+padding: 5px 10px;/*文字周りの余白*/
+}
+
+
+.participate-helder {
+  position: relative;
+}
+
+.participate-helder p {
+position: absolute;
+top: 0;/*画像の左上に配置*/
+left: 0;
+margin: 0; /*余計な隙間を除く*/
+color: black;/*文字を白に*/
+background: yellow;/*背景色*/
+font-size: 15px;
+line-height: 1;/*行高は1に*/
+padding: 5px 10px;/*文字周りの余白*/
+}
+
+
+
+.participate-no {
+  position: relative;
+  }
+
+.participate-no span {/*aタグを画像の真ん中に*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  /*以下装飾*/
+  margin:0;/*余計な隙間を除く*/
+  font-size: 20px;/*文字サイズ*/
+  border: solid white 2px; /*線で囲う*/
+  background: grya;  
+  padding: 7px;/*文字と線の間の余白*/
+  color: white;/*文字色*/
+  text-decoration: none;/*下線を表示させない*/
+  }
+
+.participate-no span:hover{/*カーソルを当てたとき*/
+  background: rgba(255, 255, 255, 0.3);/*背景を半透明に*/
+  }
+
+.participate-no img {
+  width: 100%;
+  }
+  
+  
+  
+  .participate-yes {
+  position: relative;
+  }
+
+.participate-yes span {/*aタグを画像の真ん中に*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  /*以下装飾*/
+  margin:0;/*余計な隙間を除く*/
+  font-size: 20px;/*文字サイズ*/
+  border: solid white 2px; /*線で囲う*/
+  background: grya;  
+  padding: 7px;/*文字と線の間の余白*/
+  color: white;/*文字色*/
+  text-decoration: none;/*下線を表示させない*/
+  }
+
+.participate-yes span:hover{/*カーソルを当てたとき*/
+  background: rgba(255, 255, 255, 0.3);/*背景を半透明に*/
+  }
+
+.participate-yes img {
+  width: 100%;
+  }

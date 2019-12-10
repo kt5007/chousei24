@@ -1,0 +1,51 @@
+<div class="topic-index-wrapper" >
+  <div class="container">
+    <div class="row">
+     <div class="col-md-6 col-md-offset-3">
+       <div class="topic-index-single">
+        <h1 class="text-center"><%= @held.event_name %></h1>
+        
+          <div class="topic-author">
+            <%= image_tag @held.image.url if @held.image? %>
+          </div>
+          
+          <div class="topic-author">
+            <h4>開催予定日時</h4>
+            <%= @held.held_time %>
+          </div>
+          
+          <div class="topic-author">
+            <h4>住所</h4>
+            <%= @held.address %>
+          </div>          
+
+          <div class="topic-author">
+            <h4>主催者</h4>
+            <%= @held.helder %>
+          </div>
+
+          <div class="topic-author">
+            <h4>イベント内容</h4>
+            <%= @held.description %>
+          </div>
+          
+          <% if @held.user_id==session[:user_id] %>
+            <%= link_to "/helds/#{@held.id}/edit", method: :get do %>
+              <label class='btn btn-black btn-block'>編集</label>
+            <% end %>
+          <% else %>
+            <% if @held.participate_users.include?(current_user) %>
+              <%= link_to "/participates/#{@held.id}/destroy", method: :post do %>
+                 <label class='btn btn-black btn-block'>不参加</label>
+              <% end %>
+            <% else %>
+              <%= link_to participates_path(held_id: @held.id), method: :post do %>
+                <label class='btn btn-black btn-block'>参加</label>
+              <% end %> 
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

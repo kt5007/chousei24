@@ -1,14 +1,80 @@
-<div class="top-hero-wrapper text-center">
-  <div class="container top-hero-container">
-    <h1 class="text-white">Connecting people</h1>
-    <h2 class="text-white">Chousei24 is a service that you can manage events</h2>
-    <div class="row">
-      <div class="col-md-offset-3 col-md-3">
-        <%= link_to 'Sign up', new_user_path , class: 'btn btn-block btn-white' %>
-      </div>
-      <div class="col-md-3">
-        <%= link_to 'Log in', login_path, class: 'btn btn-block btn-white' %>
+<% if logged_in? %>
+  <div class="topic-index-wrapper">
+    <div class="container">
+      <% @helds.each do |held| %>
+      
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="topic-index-single">
+              
+              
+              <% if held.user_id==session[:user_id] %>
+                <div class="participate-helder">
+                  <%= image_tag held.image.url if held.image? %>
+                  <p>主催イベント</p>
+                </div>
+              <% else %>
+                <% if held.participate_users.include?(current_user) %>
+                  <div class="participate-yes">
+                    <%= image_tag held.image.url if held.image? %>
+                    <p>参加予定</p>
+                    <%= link_to "/participates/#{held.id}/destroy", method: :post do %>
+                    <span><i class="fas fa-ban"></i>参加を取り消す</span>
+                    <% end %>
+                  </div>
+                
+                <% else %>
+                  <div class="participate-no">
+                    <%= image_tag held.image.url if held.image? %>
+                    <p>参加未定</p>
+                    <%= link_to participates_path(held_id: held.id), method: :post do %>
+                    <span><i class="fas fa-check-square"></i>参加する</span>
+                    <% end %>                 
+                  </div>
+                <% end %>
+                
+              <% end %>
+              
+                <h4 class="topic-author">
+                  <%= "開催名称：" %>
+                  <%= held.event_name %>
+                </h4>             
+                <h4 class="topic-author">
+                  <%= "開催日時：" %>
+                  <%= held.held_time %>
+                </h4>
+  
+                <h4 class="topic-author">
+                  <%= "開催場所：" %>
+                  <%= held.address %>
+                </h4>
+  
+                <p class="topic-author">
+                  <%= link_to "/helds/#{held.id}/show", method: :get do %>
+                  <button>詳細</button>
+                  <% end %>
+                </p>
+
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+<% else %>
+  <div class="top-hero-wrapper text-center">
+    <div class="container top-hero-container">
+      <h1 class="text-white">Connecting people</h1>
+      <h2 class="text-white">Chousei24 is a service that you can manage events</h2>
+      <div class="row">
+        <div class="col-md-offset-3 col-md-3">
+          <%= link_to 'Sign up', new_user_path , class: 'btn btn-block btn-white' %>
+        </div>
+        <div class="col-md-3">
+          <%= link_to 'Log in', login_path, class: 'btn btn-block btn-white' %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
